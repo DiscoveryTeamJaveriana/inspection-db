@@ -106,7 +106,7 @@ CREATE TABLE public.inspection (
     location_id character varying,
     employee_id character varying,
     type character varying,
-    date character varying,
+    date date,
     title character varying,
     description character varying,
     approved boolean,
@@ -371,7 +371,7 @@ ALTER TABLE ONLY public.inspection
 --
 
 ALTER TABLE ONLY public.inspection
-    ADD CONSTRAINT location_fk FOREIGN KEY (id) REFERENCES public.location(id);
+    ADD CONSTRAINT location_fk FOREIGN KEY (location_id) REFERENCES public.location(id);
 
 
 --
