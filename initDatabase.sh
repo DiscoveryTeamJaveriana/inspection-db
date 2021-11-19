@@ -13,7 +13,7 @@ fi
 if ! docker ps --format '{{.Names}}' | grep -w DiscoveryTeamPostgreSQL &> /dev/null;
 then
   echo "Starting PostgreSQL docker container..."
-  docker run -d --network DiscoveryTeamNetwork --name DiscoveryTeamPostgreSQL -p 10017:5432 -e POSTGRES_PASSWORD=discoveryteam -v "${TARGET}"/psql/data:/var/lib/postgresql/data postgres:9.6-alpine
+  docker run -d --network DiscoveryTeamNetwork --name DiscoveryTeamPostgreSQL -e POSTGRES_PASSWORD=discoveryteam -v "${TARGET}"/psql/data:/var/lib/postgresql/data postgres:9.6-alpine
 
   echo "Waiting for PostgreSQL start on docker container..."
   sleep 40s
